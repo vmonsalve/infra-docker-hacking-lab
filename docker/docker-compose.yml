@@ -1,0 +1,62 @@
+# NOTE: Variable interpolation in docker-compose happens before env_file is applied.
+# If variables are not exported in the shell or provided via --env-file, defaults below are used.
+services:
+
+  attacker:
+    build: ./attacker
+    container_name: attacker
+    tty: true
+    env_file:
+      - ../.env
+    volumes:
+      - ../workspace:/workspace
+      - ${TMUX_CONF:-../config/tmux.conf}:/root/.tmux.conf
+      - ${VIMRC:-../config/vimrc}:/root/.vimrc
+    networks:
+      - labnet
+
+  metasploit:
+    image: metasploitframework/metasploit-framework
+    container_name: metasploit
+    tty: true
+    stdin_open: true
+    env_file:
+      - ../.env
+    volumes:
+      - ../workspace:/workspace
+      - ${TMUX_CONF:-../config/tmux.conf}:/root/.tmux.conf
+      - ${VIMRC:-../config/vimrc}:/root/.vimrc
+    networks:
+      - labnet
+
+  gui:
+    build: ./gui
+    container_name: gui
+    tty: true
+    env_file:
+      - ../.env
+    ports:
+      - "6080:6080"
+    volumes:
+      - ../workspace:/workspace
+      - ${I3_CONFIG:-../config/i3}:/root/.config/i3
+      - ${TMUX_CONF:-../config/tmux.conf}:/root/.tmux.conf
+      - ${VIMRC:-../config/vimrc}:/root/.vimrc
+    networks:
+      - labnet
+
+  firsthacking:
+    image: firsthacking:latest
+    container_name: firsthacking
+    tty: true
+    stdin_open: true
+    networks:
+      - labnet
+
+networks:
+  labnet:
+    name: hackinglab
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24

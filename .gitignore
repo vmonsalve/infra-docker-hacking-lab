@@ -1,0 +1,33 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+
+# VSCode (optional, remove if you want to share workspace settings)
+.vscode/
+
+# Python artifacts (useful if exploits or scripts are added later)
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# Workspace runtime data (results, scans, exploits, etc.)
+workspace/
+
+
+
+# Docker artifacts
+docker/**/tmp/
+docker/**/data/
+Documentacion
+machines

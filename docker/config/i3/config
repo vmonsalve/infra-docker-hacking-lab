@@ -1,0 +1,64 @@
+
+
+# i3 basic config for HackingLab
+
+set $mod Mod4
+
+# Font
+font pango:monospace 10
+
+# Terminal
+set $term xterm
+
+# Launcher
+set $menu dmenu_run
+
+# Start terminal on launch
+exec --no-startup-id xterm
+
+# Background
+exec --no-startup-id xsetroot -solid "#000000"
+
+# Keybindings
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exit
+
+# Navigation (vim style)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move windows
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split orientation
+bindsym $mod+v split v
+bindsym $mod+b split h
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+
+# Simple bar
+bar {
+    status_command date
+}

@@ -1,0 +1,61 @@
+
+
+" Basic Vim configuration for HackingLab
+
+" Enable syntax highlighting
+syntax on
+
+" Set encoding
+set encoding=utf-8
+
+" Show line numbers
+set number
+
+" Highlight current line
+set cursorline
+
+" Tabs and indentation
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+
+" Show matching brackets
+set showmatch
+
+" Search settings
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" Enable mouse support
+set mouse=a
+
+" Better backspace behavior
+set backspace=indent,eol,start
+
+" Clipboard (works in most modern terminals)
+set clipboard=unnamedplus
+
+" Status line
+set laststatus=2
+set showcmd
+
+" Disable swap files (useful for labs)
+set noswapfile
+
+" Faster redraw
+set lazyredraw
+
+" Key mappings
+nnoremap <C-s> :w<CR>
+nnoremap <C-q> :q<CR>
+
+" Reload config
+nnoremap <leader>r :source ~/.vimrc<CR>
+
+" Colors
+set background=dark
+colorscheme default
