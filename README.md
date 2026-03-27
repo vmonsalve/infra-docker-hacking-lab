@@ -1,14 +1,25 @@
-# HackingLab
+# Infra Docker Hacking Lab
 
 <p align="center">
   <img src="imagenes/dockersock.png" alt="Menu Lab" width="500"/>
 </p>
 
+##  Quick Start
+
+```bash
+git clone https://github.com/vmonsalve/hacking-lab
+cd hacking-lab
+cp .env.example .env
+chmod +x scripts/*.sh
+chmod +x menu.sh
+./menu.sh
+```
+
+
 Laboratorio de pentesting reproducible con Docker Compose. Incluye:
 - `attacker`: contenedor con herramientas comunes de pentesting.
 - `metasploit`: imagen oficial de Metasploit Framework.
 - `gui`: entorno i3 accesible vía navegador (noVNC) en `http://localhost:6080`.
-
 
 La carpeta `workspace/` se comparte entre contenedores para guardar scripts, notas y resultados.
 
@@ -18,16 +29,15 @@ La carpeta `workspace/` se comparte entre contenedores para guardar scripts, not
 - macOS: Colima o Docker Desktop. Linux: Docker estándar. Windows: WSL2 recomendado.
 - Puerto libre `6080` para la GUI.
 
-## Instalación rápida
+## Configuracion previa.
 
-1) Preparar configuración local
 - Copia la configuración base:
   - `cp .env.example .env`
+  
 - Asegúrate de que en `.env` estén las rutas:
   - `TMUX_CONF=./config/tmux.conf`
   - `VIMRC=./config/vimrc`
   - `I3_CONFIG=./config/i3/config` 
-
 
 ### Cargar máquina objetivo
 
@@ -101,8 +111,15 @@ Una vez ejecutado, podrás controlar todo el laboratorio desde este panel intera
 
 Para iniciar tenemos dos opciones `Build containers` y `Start lab`. El primero solo crea las imagenes y el segundo crea las imagenes y despliega los contenedores.
 
+Una vez que el proceso de desplieguie termine, presionamos enter, luego cero y salimos del menu.
 
-## 🧠 Filosofía del proyecto
+## Caso de uso rapido.
+
+```bash
+docker compose exec attacker nmap -sV artefactohackeable
+```
+
+## Filosofía del proyecto
 
 Este laboratorio no es solo para “romper cosas”, sino para:
 
