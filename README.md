@@ -19,7 +19,7 @@ chmod +x menu.sh
 Laboratorio de pentesting reproducible con Docker Compose. Incluye:
 - `attacker`: contenedor con herramientas comunes de pentesting.
 - `metasploit`: imagen oficial de Metasploit Framework.
-- `gui`: entorno i3 accesible vía navegador (noVNC) en `http://localhost:6080`.
+- `gui`: entorno i3 accesible vía navegador (noVNC) en `http://localhost:6080/vnc.html`.
 
 La carpeta `workspace/` se comparte entre contenedores para guardar scripts, notas y resultados.
 
