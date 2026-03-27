@@ -37,7 +37,7 @@ La carpeta `workspace/` se comparte entre contenedores para guardar scripts, not
 - Asegúrate de que en `.env` estén las rutas:
   - `TMUX_CONF=./config/tmux.conf`
   - `VIMRC=./config/vimrc`
-  - `I3_CONFIG=./config/i3/config` 
+  - `I3_CONFIG=./config/i3` 
 
 ### Cargar máquina objetivo
 
